@@ -1,0 +1,30 @@
+<h1>Список статей</h1>
+<%= will_paginate @posts %>
+<table class="table table-bordered">
+<tr>
+  <td>ID</td>
+  <td>Title</td>
+   <td>Text</td>
+   <td>Author</td>
+   <td>Tags</td>
+   <td>Date create</td>
+</tr>
+<% @posts.each do |post| %>
+    <tr>
+      <td><%= post.id %></td>
+      <td><%= post.label %></td>
+      <td><%= post.text %></td>
+      <td><%= post.author.name %></td>
+      <td>
+      <% post.tags.each do |tag| %>
+              <%=link_to tag.name, tag_posts_path(tag.id)%>
+      <%end%>
+      </td>
+      <td><%= l post.created_at, format: :short%></td>
+      <td><%= link_to "Просмотреть", post_path(post.id) %></td>
+    </tr>
+<% end %>
+</table>
+<a href="http://localhost:3000/">Список авторов</a>
+<br>
+<a href="http://localhost:3000/post">Список статей</a>

@@ -1,0 +1,23 @@
+<h1>Список статей</h1>
+<table class="table table-bordered">
+<tr>
+  <td>Id</td>
+  <td>Title</td>
+   <td>Author</td>
+   <td>Date</td>
+   <td></td>
+</tr>
+<% @posts.each do |post| %>
+    <tr>
+      <td><%= post.id %></td>
+      <td><%= post.label %></td>
+      <td><%= post.author.name %></td>
+      <td><%= l post.created_at, format: :short%></td>
+      <td><%= link_to "Просмотр", post_path(post.id) %></td>
+      <td></td>
+    </tr>
+<% end %>
+</table>
+<a href="http://localhost:3000/">Список авторов</a>
+<br>
+<a href="http://localhost:3000/post">Список статей</a>

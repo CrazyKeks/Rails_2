@@ -1,0 +1,14 @@
+<h1>Статья</h1>
+<ul class="list-group" class="table table-bordered">
+<li class="list-group-item">Id: <%= @post.id %></li>
+<li class="list-group-item">Title: <%= @post.label %></li>
+<li class="list-group-item">Text: <%= @post.text %></li>
+<li class="list-group-item"> 
+    <% @tags.each do |tag| %>
+            <%=link_to tag.name, tag_posts_path(tag.id)%>
+    <%end%>
+</li>
+</ul>
+<a href="http://localhost:3000/">Список авторов</a>
+<br>
+<a href="http://localhost:3000/post">Список статей</a>

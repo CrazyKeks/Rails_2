@@ -1,0 +1,26 @@
+ <%= will_paginate @authors %>
+<h1>Авторы</h1>
+<table class="table table-bordered">
+	<tr>
+	  <td>Id</td>
+	  <td>Name</td>
+	   <td>Email</td>
+	   <td></td>
+	</tr>
+	<% @authors.each do |author| %>
+	    <tr>
+	      <td><%= author.id %></td>
+	      <td><%= author.name %></td>
+	      <td><%= author.email %></td>
+	       <td><%= link_to "Подробнее", author_path(author.id)%> </td>
+	    </tr>
+	<% end %>
+</table>
+<br>
+<table>
+	<tr>
+	</tr>
+</table>
+<a href="http://localhost:3000/">Список авторов</a>
+<br>
+<a href="http://localhost:3000/post">Список статей</a>
